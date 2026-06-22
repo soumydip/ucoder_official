@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,13 +13,14 @@ import {
   Lock,
   DollarSign,
 } from "lucide-react";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.5 },
   }),
 };
 
@@ -76,13 +76,13 @@ export default function Home() {
           custom={3}
           className="flex flex-wrap gap-3 justify-center"
         >
-          <Button asChild size="lg">
-            <Link href="/products">
+          <Button asChild size="lg" className="rounded-2xl">
+            <a href="/products" className="inline-flex items-center">
               Explore Products <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </Button>
-          <Button variant="ghost" size="lg" asChild>
-            <Link href="/services">Our Services</Link>
+          <Button variant="ghost" size="lg" asChild className="rounded-2xl">
+            <a href="/services">Our Services</a>
           </Button>
         </motion.div>
       </section>
@@ -130,9 +130,9 @@ export default function Home() {
                 <span>5+ projects</span>
               </div>
               <Button size="sm" asChild>
-                <Link href="https://insights.ucoder.in">
+                <a href="https://insights.ucoder.in" target="_blank" rel="noopener noreferrer">
                   Get Started <ArrowRight className="ml-2 h-3 w-3" />
-                </Link>
+                </a>
               </Button>
             </CardContent>
           </Card>
@@ -205,7 +205,7 @@ export default function Home() {
           className="mt-6 text-center"
         >
           <Button variant="outline" asChild>
-            <Link href="/services">
+            <Link href="/services" target="_blank" rel="noopener noreferrer">
               See All Services <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -296,7 +296,9 @@ export default function Home() {
             Have a project in mind? Let&apos;s talk.
           </p>
           <Button asChild>
-            <Link href="mailto:support@ucoder.in">support@ucoder.in</Link>
+            <a href="mailto:support@ucoder.in" target="_blank" rel="noopener noreferrer">
+              support@ucoder.in
+            </a>
           </Button>
         </motion.div>
       </section>

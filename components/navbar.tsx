@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Shield, Sun, Moon, Menu, X } from "lucide-react";
-
+import Image from "next/image";
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
@@ -21,20 +21,20 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <Shield className="h-5 w-5 text-primary" />
+          <Image src="/logo.png" alt="UCoder Logo" width={24} height={24} loading="lazy" />
           UCoder
         </Link>
 
         {/* Desktop */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-foreground transition-colors">
+            <Link key={l.href} href={l.href} className="hover:text-foreground transition-colors hover:underline hover:text-foreground">
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2 rounded-2xl">
           <Button
             variant="ghost"
             size="icon"
@@ -43,7 +43,7 @@ export default function Navbar() {
             <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" asChild className="rounded-2xl">
             <Link href="https://insights.ucoder.in/signup">Get Started</Link>
           </Button>
         </div>
@@ -66,7 +66,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Button size="sm" asChild>
+          <Button size="sm" asChild className="rounded-2xl">
             <Link href="https://insights.ucoder.in/signup">Get Started</Link>
           </Button>
         </div>

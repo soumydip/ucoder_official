@@ -21,7 +21,10 @@ export default function Footer() {
             <Link href="https://x.com/Ucoder_in" target="_blank">
               <Twitter className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
             </Link>
-            <Link href="https://www.linkedin.com/company/ucoder-official" target="_blank">
+            <Link
+              href="https://www.linkedin.com/company/ucoder-official"
+              target="_blank"
+            >
               <Linkedin className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
             </Link>
           </div>
@@ -30,32 +33,70 @@ export default function Footer() {
         <div>
           <p className="text-xs font-medium mb-3">Products</p>
           <div className="flex flex-col gap-2">
-            <Link href="/products" className="text-xs text-muted-foreground hover:text-foreground">All Products</Link>
-            <Link href="https://insights.ucoder.in" className="text-xs text-muted-foreground hover:text-foreground">UCoder Insights</Link>
+            <Link
+              href="/products"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              All Products
+            </Link>
+            <Link
+              href="https://insights.ucoder.in?utm_source=ucoder.in&utm_medium=footer"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              UCoder Insights
+            </Link>
           </div>
         </div>
 
         <div>
           <p className="text-xs font-medium mb-3">Company</p>
           <div className="flex flex-col gap-2">
-            <Link href="/about" className="text-xs text-muted-foreground hover:text-foreground">About</Link>
-            <Link href="/services" className="text-xs text-muted-foreground hover:text-foreground">Services</Link>
-            <Link href="mailto:support@ucoder.in" className="text-xs text-muted-foreground hover:text-foreground">Contact</Link>
+            <Link
+              href="/about"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              Services
+            </Link>
+            <Link
+              href="mailto:support@ucoder.in"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              Contact
+            </Link>
           </div>
         </div>
 
         <div>
           <p className="text-xs font-medium mb-3">Legal</p>
           <div className="flex flex-col gap-2">
-            <Link href="https://insights.ucoder.in/legal/privacy-policy" className="text-xs text-muted-foreground hover:text-foreground">Privacy Policy</Link>
-            <Link href="https://insights.ucoder.in/legal/terms-and-conditions" className="text-xs text-muted-foreground hover:text-foreground">Terms</Link>
+            <Link
+              href="https://insights.ucoder.in/legal/privacy-policy"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="https://insights.ucoder.in/legal/terms-and-conditions"
+              className="text-xs text-muted-foreground hover:text-foreground"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="border-t border-border/40 px-4 py-4 text-center text-xs text-muted-foreground">
         © 2026 UCoder. Built by{" "}
-        <Link href="https://soumyadip.ucoder.in" className="text-foreground hover:underline">
+        <Link
+          href="https://soumyadip.ucoder.in"
+          className="text-foreground hover:underline"
+        >
           Soumyadip
         </Link>{" "}
         with ❤️
