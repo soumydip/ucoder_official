@@ -12,6 +12,11 @@ import {
   Zap,
   Lock,
   DollarSign,
+  BarChart2,
+  ShieldCheck,
+  Bug,
+  MousePointerClick,
+  Activity,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -24,6 +29,14 @@ const fadeUp = {
   }),
 };
 
+function NpmIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M0 7.334v8h6.666v1.332H12v-1.332h12v-8H0zm6.666 6.664H5.334v-4H3.999v4H1.335V8.667h5.331v5.331zm4 0v1.336H8.001V8.667h5.334v5.332h-2.669v-.001zm12.001 0h-1.33v-4h-1.336v4h-1.335v-4h-1.33v4h-2.671V8.667h8.002v5.331z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <div className="flex flex-col pt-16">
@@ -34,13 +47,14 @@ export default function Home() {
         </div>
 
         <motion.div
+          className="border-border/40 bg-muted/30 rounded-2xl p-1 mb-6 inline-block pointer-events-none"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           custom={0}
         >
-          <Badge variant="outline" className="mb-6">
-            Open source · Privacy first
+          <Badge variant="outline" className="rounded-2xl px-3 py-1 text-sm">
+            Open source . Privacy first
           </Badge>
         </motion.div>
 
@@ -76,13 +90,23 @@ export default function Home() {
           custom={3}
           className="flex flex-wrap gap-3 justify-center"
         >
-          <Button asChild size="lg" className="rounded-2xl">
-            <a href="/products" className="inline-flex items-center">
-              Explore Products <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="lg" asChild className="rounded-2xl">
-            <a href="/services">Our Services</a>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 relative overflow-hidden transition-all duration-500 group cursor-pointer hover:scale-[1.05] hover:shadow-lg"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
+            <span className="absolute inset-0 bg-[#0a1620] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <span className="relative z-10 flex items-center gap-2 text-white text-sm font-semibold uppercase tracking-widest">
+              Explore Products <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
+          <Button
+            variant="ghost"
+            size="lg"
+            asChild
+            className="rounded-2xl border border-white/20 bg-white text-primary hover:bg-white/90 hover:text-primary hover:bg-gray-300 transition-all duration-300"
+          >
+            <Link href="/services">Our Services</Link>
           </Button>
         </motion.div>
       </section>
@@ -108,32 +132,95 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Card className="border-border/40 bg-muted/30 max-w-lg mx-auto">
+          <Card className="border-border/40 bg-muted/30 max-w-lg mx-auto rounded-2xl">
             <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-3">
-                <p className="font-medium">UCoder Insights</p>
-                <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
-                  Live ✓
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-md border border-border/40 bg-muted flex items-center justify-center">
+                    <BarChart2 className="h-3.5 w-3.5 text-muted-foreground" />
+                  </div>
+                  <p className="font-medium text-sm">UCoder Insights</p>
+                </div>
+                <Badge className="gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 border-emerald-500/20 text-xs font-medium">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Live
                 </Badge>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Privacy-first web analytics. No cookies, no IP storage, &lt;
-                7.4KB SDK.
-              </p>
-              <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-5">
-                <span>Free</span>
-                <span>·</span>
-                <span>&lt; 7.4KB</span>
-                <span>·</span>
-                <span>99.9% uptime</span>
-                <span>·</span>
-                <span>5+ projects</span>
+
+              {/* Feature grid */}
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {[
+                  {
+                    icon: <ShieldCheck className="h-4 w-4" />,
+                    title: "Privacy-first",
+                    desc: "No cookies, no consent banners",
+                  },
+                  {
+                    icon: <Bug className="h-4 w-4" />,
+                    title: "Error tracking",
+                    desc: "Monitor & manage errors live",
+                  },
+                  {
+                    icon: <MousePointerClick className="h-4 w-4" />,
+                    title: "Click heatmaps",
+                    desc: "Rage & dead click detection",
+                  },
+                  {
+                    icon: <Activity className="h-4 w-4" />,
+                    title: "Real-time",
+                    desc: "Live visitor sessions",
+                  },
+                ].map(({ icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="bg-muted/50 rounded-lg p-2.5 space-y-1"
+                  >
+                    <span className="text-muted-foreground my-2">{icon}</span>
+                    <p className="text-xs font-medium leading-none my-2">{title}</p>
+                    <p className="text-[11px] text-muted-foreground leading-snug">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <Button size="sm" asChild>
-                <a href="https://insights.ucoder.in" target="_blank" rel="noopener noreferrer">
-                  Get Started <ArrowRight className="ml-2 h-3 w-3" />
-                </a>
-              </Button>
+
+              {/* Pills */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {["Free", "< 7.4 KB", "99.9% uptime", "5+ projects"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] p-2 rounded-md bg-muted text-muted-foreground border border-border/40"
+                    >
+                      {tag}
+                    </span>
+                  ),
+                )}
+              </div>
+
+              <div className="flex gap-8 justify-center">
+                <Button size="sm" asChild >
+                  <a
+                    href="https://insights.ucoder.in"
+                    className="bg-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Started <ArrowRight className="ml-1.5 h-3 w-3" />
+                  </a>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <a
+                    href="https://www.npmjs.com/package/ucoder-insight"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <NpmIcon className="mr-1.5 h-3.5 w-3.5 text-[#cb3837]" />
+                    npm
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
@@ -296,7 +383,11 @@ export default function Home() {
             Have a project in mind? Let&apos;s talk.
           </p>
           <Button asChild>
-            <a href="mailto:support@ucoder.in" target="_blank" rel="noopener noreferrer">
+            <a
+              href="mailto:support@ucoder.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               support@ucoder.in
             </a>
           </Button>

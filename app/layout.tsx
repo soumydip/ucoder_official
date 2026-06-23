@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 
-const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
-
-const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "UCoder — Developer Tools & Services",
@@ -24,13 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", notoSans.variable, playfairDisplayHeading.variable)}>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+    <html lang="en" className={cn("dark font-sans", plusJakartaSans.variable)}>
+      <body
+        className={cn("font-sans bg-background text-foreground antialiased")}
+      >
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

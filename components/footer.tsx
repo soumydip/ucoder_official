@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { Shield } from "lucide-react";
 import { Github, Twitter, Linkedin } from "lucide-react";
-
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-background">
       <div className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-2 font-semibold mb-3">
-            <Shield className="h-5 w-5 text-primary" />
+            <Image src="/logo.png" alt="UCoder Logo" width={24} height={24} loading="lazy" />
             UCoder
           </Link>
           <p className="text-xs text-muted-foreground leading-relaxed">
