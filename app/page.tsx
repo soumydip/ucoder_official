@@ -19,7 +19,7 @@ import {
   Activity,
 } from "lucide-react";
 import Link from "next/link";
-
+import Image from "next/image";
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
@@ -138,7 +138,7 @@ export default function Home() {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-7 h-7 rounded-md border border-border/40 bg-muted flex items-center justify-center">
-                    <BarChart2 className="h-3.5 w-3.5 text-muted-foreground" />
+                    <Image src="/ucoder-insights.png" alt="ucoder insights" height={48} width={48} loading="lazy" className="rounded" />
                   </div>
                   <p className="font-medium text-sm">UCoder Insights</p>
                 </div>
@@ -177,7 +177,9 @@ export default function Home() {
                     className="bg-muted/50 rounded-lg p-2.5 space-y-1"
                   >
                     <span className="text-muted-foreground my-2">{icon}</span>
-                    <p className="text-xs font-medium leading-none my-2">{title}</p>
+                    <p className="text-xs font-medium leading-none my-2">
+                      {title}
+                    </p>
                     <p className="text-[11px] text-muted-foreground leading-snug">
                       {desc}
                     </p>
@@ -198,19 +200,22 @@ export default function Home() {
                   ),
                 )}
               </div>
-
-              <div className="flex gap-8 justify-center">
-                <Button size="sm" asChild >
+              <div className="flex justify-between mx-5 gap-2">
+                <Button
+                  size="sm"
+                  asChild
+                  variant="secondary"
+                  className="bg-[#162030] hover:bg-[#1c2840] text-slate-200 border border-slate-700/50 tracking-wide rounded"
+                >
                   <a
-                    href="https://insights.ucoder.in"
-                    className="bg-primary"
+                    href="https://insights.ucoder.in?utm_source=ucoder.in&utm_medium=Product_hero_section&utm_campaign=get_started"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Get Started <ArrowRight className="ml-1.5 h-3 w-3" />
                   </a>
                 </Button>
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" variant="outline" asChild className="rounded">
                   <a
                     href="https://www.npmjs.com/package/ucoder-insight"
                     target="_blank"
@@ -254,8 +259,8 @@ export default function Home() {
             },
             {
               icon: <CreditCard className="h-5 w-5" />,
-              title: "Payment Integration",
-              desc: "Razorpay, Stripe, and more — integrated cleanly into your product.",
+              title: "API Development",
+              desc: "RESTful,Web Socket APIs built scalable, secure, and well-documented for your product.",
               delay: 1,
             },
             {
@@ -273,7 +278,7 @@ export default function Home() {
               viewport={{ once: true }}
               custom={s.delay}
             >
-              <Card className="border-border/40 bg-muted/30 h-full">
+              <Card className="border-border/40 bg-muted/30 h-full rounded">
                 <CardContent className="p-5">
                   <div className="text-primary mb-3">{s.icon}</div>
                   <p className="font-medium text-sm mb-1">{s.title}</p>
@@ -299,7 +304,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* About Snippet */}
+      {/* About  */}
       <section className="mx-auto max-w-6xl px-4 py-16 text-center">
         <motion.div
           variants={fadeUp}
@@ -382,7 +387,7 @@ export default function Home() {
           <p className="text-muted-foreground mb-6">
             Have a project in mind? Let&apos;s talk.
           </p>
-          <Button asChild>
+          <Button asChild variant="secondary">
             <a
               href="mailto:support@ucoder.in"
               target="_blank"

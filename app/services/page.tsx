@@ -43,7 +43,7 @@ const services = [
   {
     icon: <Code2 className="h-5 w-5" />,
     title: "API Development",
-    desc: "RESTful APIs built scalable, secure, and well-documented for your product.",
+    desc: "Web Socket, RESTful APIs built scalable, secure, and well-documented for your product.",
   },
   {
     icon: <Zap className="h-5 w-5" />,
@@ -197,8 +197,8 @@ export default function ServicesPage() {
                 Every project is different. We discuss scope and give you a fair
                 quote — no hidden fees, no surprises.
               </p>
-              <Button asChild>
-                <a href="mailto:support@ucoder.in">
+              <Button asChild variant="secondary">
+                <a href="mailto:info@ucoder.in">
                   Get a free quote
                 </a>
               </Button>
@@ -223,7 +223,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Button asChild>
-              <a href="mailto:support@ucoder.in">Contact Us</a>
+              <a href="mailto:info@ucoder.in">Contact Us</a>
             </Button>
             <Button variant="outline" asChild>
               <a href="mailto:support@ucoder.in">support@ucoder.in</a>

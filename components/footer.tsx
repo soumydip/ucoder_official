@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="border-t border-border/40 bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-2 md:grid-cols-3 gap-8">
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-2 font-semibold mb-3">
             <Image src="/logo.png" alt="UCoder Logo" width={24} height={24} loading="lazy" />
@@ -39,7 +39,7 @@ export default function Footer() {
               All Products
             </Link>
             <Link
-              href="https://insights.ucoder.in?utm_source=ucoder.in&utm_medium=footer"
+              href="https://insights.ucoder.in?utm_source=ucoder.in&utm_medium=footer&utm_campaign=insights_link"
               className="text-xs text-muted-foreground hover:text-foreground"
             >
               UCoder Insights
@@ -70,31 +70,13 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
-        <div>
-          <p className="text-xs font-medium mb-3">Legal</p>
-          <div className="flex flex-col gap-2">
-            <Link
-              href="https://insights.ucoder.in/legal/privacy-policy"
-              className="text-xs text-muted-foreground hover:text-foreground"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="https://insights.ucoder.in/legal/terms-and-conditions"
-              className="text-xs text-muted-foreground hover:text-foreground"
-            >
-              Terms
-            </Link>
-          </div>
-        </div>
       </div>
 
       <div className="border-t border-border/40 px-4 py-4 text-center text-xs text-muted-foreground">
         © 2026 UCoder. Built by{" "}
         <Link
-          href="https://soumyadip.ucoder.in"
-          className="text-foreground hover:underline"
+          href="https://soumyadip.ucoder.in?utm_source=ucoder.in&utm_medium=footer&utm_campaign=soumyadip_link"
+          className="text-foreground hover:underline mx-1"
         >
           Soumyadip
         </Link>{" "}
